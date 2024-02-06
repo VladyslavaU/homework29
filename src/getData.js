@@ -25,18 +25,7 @@
 */
 
 async function getData(segment) {
-  try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`)
-    if (!response.ok) {
-      return response.status // Повертаємо статус помилки
-    }
-    const data = await response.json()
-    console.log(data)
-    return data // Повертаємо дані при успішному запиті
-  } catch (error) {
-    console.error('Error fetching data: ', error)
-    return error.message // Повертаємо текст помилки
-  }
+  // code here
 }
 
 export { getData }

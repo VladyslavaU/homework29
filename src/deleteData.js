@@ -25,22 +25,7 @@
 */
 
 async function deleteData(id) {
-  try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'DELETE'
-    })
-
-    if (response.ok) {
-      console.log(`Post with id ${id} has been successfully deleted.`)
-      return true // Повернення true при успішному видаленні
-    } else {
-      console.error(`Failed to delete post with id ${id}. Status: ${response.status}`)
-      return response.status // Повернення статусу помилки
-    }
-  } catch (error) {
-    console.error(`Error during deletion: ${error}`)
-    return error.message // Повернення повідомлення помилки
-  }
+  // code here
 }
 
 export { deleteData }
