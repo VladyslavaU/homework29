@@ -16,12 +16,14 @@
 
 [deleteData.js](src%2FdeleteData.js)
 
-За бажанням: [getData.js](src%2Fextra%2FgetData.js),
+За бажанням, [extra](src%2Fextra): [getData.js](src%2Fextra%2FgetData.js),
 [patchData.js](src%2Fextra%2FpatchData.js),
 [postData.js](src%2Fextra%2FpostData.js),
 [putData.js](src%2Fextra%2FputData.js)
 
-Папка [extra](src%2Fextra) - тестування поки не розроблено.
+Мінімально необхідним рішенням є створення хоча б однієї функції. Втім, розробка додаткових функцій буде вважатися
+позитивним моментом, хоча й не передбачає додаткової оцінки. Для тестів достатньо адаптувати назву файлу тестів,
+видаливши символ підкреслення з суфікса `_test`.
 
 ## 3. Запускаємо тести
 
