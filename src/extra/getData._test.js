@@ -19,6 +19,18 @@ afterEach(() => {
 })
 
 describe('getData function', () => {
+  it('uses GET method for fetching data', async () => {
+    fetch.mockImplementationOnce(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({ id: 1, title: 'Test Post' })
+    }))
+
+    await getData('/posts/1')
+
+    // Перевіряємо, що fetch викликаний з методом GET
+    expect(fetch.mock.calls[0][1].method).toBe('GET')
+  })
+
   it('returns data on successful fetch', async () => {
     fetch.mockImplementationOnce(() => Promise.resolve({
       ok: true,

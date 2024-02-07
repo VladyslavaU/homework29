@@ -16,7 +16,10 @@
 
 [deleteData.js](src%2FdeleteData.js)
 
-За бажанням: [getData.js](src%2FgetData.js)
+За бажанням: [getData.js](src%2Fextra%2FgetData.js),
+[patchData.js](src%2Fextra%2FpatchData.js),
+[postData.js](src%2Fextra%2FpostData.js),
+[putData.js](src%2Fextra%2FputData.js)
 
 Папка [extra](src%2Fextra) - тестування поки не розроблено.
 
