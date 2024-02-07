@@ -26,10 +26,17 @@
 
 async function getData(segment) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`)
+    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
     if (!response.ok) {
       return response.status // Повертаємо статус помилки
     }
+
     const data = await response.json()
     console.log(data)
     return data // Повертаємо дані при успішному запиті

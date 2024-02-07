@@ -1,4 +1,4 @@
-import { getData } from './getData'
+import { putData } from './putData'
 
 let originalConsoleError // Визначаємо змінну в області видимості, доступній для обох хуків
 let originalConsoleLog // Визначаємо змінну в області видимості, доступній для обох хуків
@@ -10,39 +10,41 @@ beforeEach(() => {
   originalConsoleLog = console.log // Зберігаємо оригінальний console.log
   console.error = jest.fn() // Приглушаємо console.error
   console.log = jest.fn() // Приглушаємо console.log
-  global.fetch = jest.fn()
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({ message: 'Success' })
+    })
+  )
 })
 
 afterEach(() => {
   console.error = originalConsoleError // Відновлюємо console.error
   console.log = originalConsoleLog // Відновлюємо console.log
 })
+describe('putData function', () => {
+  it('successfully updates data and returns the result', async () => {
+    const id = 1
+    const newData = { title: 'Updated Post' }
 
-describe('getData function', () => {
-  it('returns data on successful fetch', async () => {
-    fetch.mockImplementationOnce(() => Promise.resolve({
-      ok: true,
-      json: () => Promise.resolve({ id: 1, title: 'Test Post' })
-    }))
-
-    const data = await getData('/posts/1')
-    expect(data).toEqual({ id: 1, title: 'Test Post' })
+    const result = await putData(id, newData)
+    expect(result).toEqual({ message: 'Success' })
+    expect(fetch).toHaveBeenCalledWith(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify(newData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
   })
 
-  it('returns status code on fetch error', async () => {
-    fetch.mockImplementationOnce(() => Promise.resolve({
-      ok: false,
-      status: 404
-    }))
-
-    const statusCode = await getData('/nonexistent')
-    expect(statusCode).toBe(404)
-  })
-
-  it('returns error message when fetch operation fails', async () => {
+  it('returns error message on fetch failure', async () => {
     fetch.mockImplementationOnce(() => Promise.reject(new Error('Network error')))
 
-    const errorMessage = await getData('/error')
-    expect(errorMessage).toContain('Network error')
+    const result = await putData(1, {})
+    expect(result).toContain('Network error')
   })
 })
