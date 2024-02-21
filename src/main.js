@@ -30,23 +30,10 @@ console.log('#14. JavaScript homework example file')
 
 async function getData(segment) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      return response.status // Повертаємо статус помилки
-    }
-
-    const data = await response.json()
-    console.log(data)
-    return data // Повертаємо дані при успішному запиті
+    // const response = await fetch(...)
+    // code here
   } catch (error) {
-    console.error('Error fetching data: ', error)
-    return error.message // Повертаємо текст помилки
+    // code here
   }
 }
 
@@ -78,24 +65,10 @@ async function getData(segment) {
 
 async function postData(segment, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-
-    const result = await response.json()
-    console.log(result)
-    return result
+    // const response = await fetch(...)
+    // code here
   } catch (error) {
-    console.error('Error posting data: ', error)
-    return error.message
+    // code here
   }
 }
 
@@ -127,24 +100,10 @@ async function postData(segment, data) {
 
 async function putData(id, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
-    }
-
-    const result = await response.json()
-    console.log(result)
-    return result
+    // const response = await fetch(...)
+    // code here
   } catch (error) {
-    console.error('Error updating data: ', error)
-    return error.message
+    // code here
   }
 }
 
@@ -176,24 +135,10 @@ async function putData(id, data) {
 
 async function patchData(id, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
-    }
-
-    const result = await response.json()
-    console.log(result)
-    return result
+    // const response = await fetch(...)
+    // code here
   } catch (error) {
-    console.error('Error updating data: ', error)
-    return error.message
+    // code here
   }
 }
 
@@ -227,20 +172,10 @@ async function patchData(id, data) {
 
 async function deleteData(id) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'DELETE'
-    })
-
-    if (response.ok) {
-      console.log(`Post with id ${id} has been successfully deleted.`)
-      return true // Повернення true при успішному видаленні
-    } else {
-      console.error(`Failed to delete post with id ${id}. Status: ${response.status}`)
-      return response.status // Повернення статусу помилки
-    }
+    // const response = await fetch(...)
+    // code here
   } catch (error) {
-    console.error(`Error during deletion: ${error}`)
-    return error.message // Повернення повідомлення помилки
+    // code here
   }
 }
 
