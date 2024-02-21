@@ -1,4 +1,4 @@
-import { postData } from './postData'
+import { postData } from '../main'
 
 let originalConsoleError // Визначаємо змінну в області видимості, доступній для обох хуків
 let originalConsoleLog // Визначаємо змінну в області видимості, доступній для обох хуків

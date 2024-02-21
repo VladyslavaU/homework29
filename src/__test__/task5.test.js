@@ -1,4 +1,4 @@
-import { deleteData } from './deleteData'
+import { deleteData } from '../main'
 
 let originalConsoleError // Визначаємо змінну в області видимості, доступній для обох хуків
 let originalConsoleLog // Визначаємо змінну в області видимості, доступній для обох хуків
