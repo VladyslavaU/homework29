@@ -12,6 +12,7 @@
     "jest-environment-jsdom": "^29.7.0"
   },
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "watch": "jest --watch --verbose"
   }
 }
